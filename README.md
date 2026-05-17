@@ -36,6 +36,8 @@ Both scripts accept an optional path argument to review any Python file:
 uv run examples/01-code-review/single_orchestrator.py path/to/your_file.py
 ```
 
+See [ROADMAP.md](ROADMAP.md) for the full list of planned examples and the patterns each one teaches.
+
 ## Patterns illustrated
 
 - **Single orchestrator** — simplest baseline; one API call, one system prompt
