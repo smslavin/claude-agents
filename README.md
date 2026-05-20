@@ -1,6 +1,6 @@
 # claude-agents
 
-Learning examples for building multi-agent systems with the [Anthropic Claude API](https://docs.anthropic.com/en/api/getting-started). Each example is self-contained and implements the same task two ways — single orchestrator and multi-orchestrator — so you can directly compare the patterns.
+Learning examples for building multi-agent systems with the [Anthropic Claude API](https://docs.anthropic.com/en/api/getting-started). Ten self-contained examples across five tiers, each teaching a specific pattern. The first example shows two implementations side by side; the rest each demonstrate one pattern in depth.
 
 ## Setup
 
@@ -40,8 +40,12 @@ uv run examples/01-code-review/single_orchestrator.py path/to/your_file.py
 
 ### [02 — Streaming + Thinking Transparency](examples/02-streaming-thinking/)
 
-A technical advisor that streams Claude's response while surfacing its reasoning
-separately from its final answer. Shows the cost breakdown from the `usage` object.
+A technical advisor that streams its response while surfacing Claude's reasoning
+separately from its final answer.
+
+| File | Pattern |
+|---|---|
+| `advisor.py` | Raw stream event iteration; thinking blocks rendered separately from answer; cost breakdown from `usage` object |
 
 ```sh
 uv run examples/02-streaming-thinking/advisor.py
@@ -52,8 +56,12 @@ uv run examples/02-streaming-thinking/advisor.py "Should I use Redis or Memcache
 
 ### [03 — Structured Extraction](examples/03-structured-extraction/)
 
-Extracts typed `BugReport` objects from free-form text with field-level confidence
-scoring. Handles refusals and truncation as distinct stop reasons.
+Extracts typed `BugReport` objects from free-form text across three sample inputs:
+a complete report, a vague complaint, and text that isn't a bug report at all.
+
+| File | Pattern |
+|---|---|
+| `extractor.py` | `messages.parse()` with Pydantic; `confidence` field per extraction; `refusal` and `max_tokens` stop reasons handled as distinct cases |
 
 ```sh
 uv run examples/03-structured-extraction/extractor.py
