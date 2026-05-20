@@ -16,7 +16,7 @@ throughout — each example adds at least one visibility technique.
 
 ## Tier 2 — Core API Patterns
 
-### 02 · Streaming + Thinking Transparency
+### ✅ 02 · Streaming + Thinking Transparency
 **What it teaches:** how to stream a response, how to surface Claude's reasoning, and how to estimate cost in real time.
 
 **Patterns**
@@ -34,7 +34,7 @@ being able to show users *why* the model reached a conclusion — is foundationa
 
 ---
 
-### 03 · Structured Extraction Pipeline
+### ✅ 03 · Structured Extraction Pipeline
 **What it teaches:** how to get guaranteed-valid, schema-enforced JSON from Claude.
 
 **Patterns**
@@ -55,7 +55,7 @@ the markdown yourself" class of bugs and make pipeline state machine-readable.
 
 ## Tier 3 — Tool Use & Agentic Loops
 
-### 04 · Research Agent (Manual Agentic Loop)
+### ✅ 04 · Research Agent (Manual Agentic Loop)
 **What it teaches:** how to write a proper agentic loop from scratch, with tool use and observability at every step.
 
 **Patterns**
@@ -75,7 +75,7 @@ Getting the loop right — including error paths — is the skill that transfers
 
 ---
 
-### 05 · Prompt Caching Deep Dive
+### ✅ 05 · Prompt Caching Deep Dive
 **What it teaches:** how caching actually works, how to design prompts around it, and how to measure it.
 
 **Patterns**
@@ -96,7 +96,7 @@ latency. Most developers don't know their cache hit rate or why it's low.
 
 ## Tier 4 — Multi-Agent Patterns
 
-### 06 · Fan-Out Pipeline (Map-Reduce over Agents)
+### ✅ 06 · Fan-Out Pipeline (Map-Reduce over Agents)
 **What it teaches:** how to coordinate many parallel agents and merge their results reliably.
 
 **Patterns**
@@ -115,7 +115,7 @@ and any task that decomposes into independent parallel workstreams.
 
 ---
 
-### 07 · Sequential Pipeline with Handoffs
+### ✅ 07 · Sequential Pipeline with Handoffs
 **What it teaches:** how to pass structured context between agents in a chain, and how to make the handoffs inspectable.
 
 **Patterns**
@@ -136,7 +136,7 @@ the difference between a pipeline you can debug and one you can't.
 
 ## Tier 5 — Reliability & Production Patterns
 
-### 08 · Human-in-the-Loop Agent
+### ✅ 08 · Human-in-the-Loop Agent
 **What it teaches:** how to build supervised agentic workflows with approval gates and a full audit trail.
 
 **Patterns**
@@ -155,7 +155,7 @@ at least some of the time. The patterns here also apply to automated approval ga
 
 ---
 
-### 09 · Self-Correcting Agent
+### ✅ 09 · Self-Correcting Agent
 **What it teaches:** how to build agents that detect and recover from their own errors.
 
 **Patterns**
@@ -174,7 +174,7 @@ surfaced with observability turns failures into data.
 
 ---
 
-### 10 · Long-Running Agent with Memory
+### ✅ 10 · Long-Running Agent with Memory
 **What it teaches:** how to build agents that work across sessions and manage their own context window.
 
 **Patterns**
