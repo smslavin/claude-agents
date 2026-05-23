@@ -74,6 +74,10 @@ uv run examples/03-structured-extraction/extractor.py
 A research agent that uses Anthropic's server-side web search and web fetch tools.
 Demonstrates the manual agentic loop, `pause_turn` handling, and per-turn observability.
 
+| File | Pattern |
+|---|---|
+| `researcher.py` | Manual agentic loop with `stop_reason` dispatch; server-side `web_search` and `web_fetch`; `pause_turn` continuation; per-turn log with tool name, input, and latency; deduplicated sources list |
+
 ```sh
 uv run examples/04-research-agent/researcher.py
 uv run examples/04-research-agent/researcher.py "How does Python's GIL affect async agents?"
@@ -85,6 +89,10 @@ uv run examples/04-research-agent/researcher.py "How does Python's GIL affect as
 
 Shows caching on, caching off, and a silent invalidator — side by side, with a cost
 comparison table and break-even analysis from real token counts.
+
+| File | Pattern |
+|---|---|
+| `caching.py` | `cache_control` on a stable knowledge base block; three runs (cached, uncached, invalidated by timestamp); `cache_creation_input_tokens` vs `cache_read_input_tokens`; hit rate, savings, and break-even displayed |
 
 ```sh
 uv run examples/05-prompt-caching/caching.py
