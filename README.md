@@ -105,6 +105,10 @@ uv run examples/05-prompt-caching/caching.py
 Four specialist agents analyze a document in parallel; an Opus coordinator synthesizes
 with confidence weighting. Gantt timing and per-agent token attribution included.
 
+| File | Pattern |
+|---|---|
+| `analyst.py` | 4 Haiku specialists dispatched via `asyncio.gather` + `Semaphore`; each appends a confidence score; Opus coordinator synthesizes with confidence weighting; Gantt-style timing and per-agent token attribution |
+
 ```sh
 uv run examples/06-fan-out-pipeline/analyst.py
 uv run examples/06-fan-out-pipeline/analyst.py path/to/rfc.txt
@@ -116,6 +120,10 @@ uv run examples/06-fan-out-pipeline/analyst.py path/to/rfc.txt
 
 Three-stage content pipeline. Each stage receives only the typed output of the
 previous stage. Pydantic schemas are the handoff contracts; any stage fails cleanly.
+
+| File | Pattern |
+|---|---|
+| `pipeline.py` | Three stages (plan → write → edit) each with a Pydantic handoff contract; `PipelineStageError` isolates failures so downstream stages never run on bad input; data lineage table traces every field back to the stage that produced it |
 
 ```sh
 uv run examples/07-sequential-pipeline/pipeline.py
