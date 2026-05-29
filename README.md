@@ -137,6 +137,10 @@ uv run examples/07-sequential-pipeline/pipeline.py "Your topic here"
 A file-editing agent that requires human approval before writing. Shows the diff
 and rationale for every proposed change. Staleness check + full audit log.
 
+| File | Pattern |
+|---|---|
+| `editor.py` | `rationale` field in the write tool forces the agent to explain before the human sees the diff; staleness check rejects writes if the file changed since the agent last read it; `AuditLog` records every tool call with timestamp, approval status, and original content for rollback |
+
 ```sh
 uv run examples/08-human-in-the-loop/editor.py
 uv run examples/08-human-in-the-loop/editor.py path/to/file.py "Add type hints"
@@ -149,6 +153,10 @@ uv run examples/08-human-in-the-loop/editor.py path/to/file.py "Add type hints"
 Generates code from a spec, validates with a second model, revises on failure.
 Shows a diff between attempts and tracks cost per correction round.
 
+| File | Pattern |
+|---|---|
+| `corrector.py` | Opus generator + Haiku validator with a 3-round correction budget; `ValidationResult` Pydantic schema classifies errors as syntax, logic, or incomplete; free `ast.parse` check before any Claude call; `difflib.unified_diff` shows exactly what changed between rounds |
+
 ```sh
 uv run examples/09-self-correcting/corrector.py
 uv run examples/09-self-correcting/corrector.py "Write a semver parser"
@@ -160,6 +168,10 @@ uv run examples/09-self-correcting/corrector.py "Write a semver parser"
 
 A REPL assistant that persists notes across sessions and compacts its own context
 when approaching the token limit. Context pressure shown after every turn.
+
+| File | Pattern |
+|---|---|
+| `assistant.py` | File-system memory tools (`save_note`, `get_note`, `list_notes`, `delete_note`) for cross-session persistence; compaction fires at 40K tokens — summarizes the transcript and replaces history with a 2-message summary; full `response.content` appended each turn to preserve compaction blocks; `█░` context pressure bar shown after every response |
 
 ```sh
 uv run examples/10-long-running-memory/assistant.py
